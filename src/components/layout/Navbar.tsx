@@ -48,8 +48,10 @@ export default function Navbar() {
     { name: 'Moon', path: '/moon-phases' },
     { name: 'World Clock', path: '/world-clock' },
     { name: 'Countdown', path: '/countdown' },
-    { name: 'age calculator', path: '/age-calculator' },
+    { name: 'Age Calculator', path: '/age-calculator' },
     { name: 'Blog', path: '/blog' },
+    { name: 'About', path: '/about' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   const handleSignOut = async () => {

@@ -15,6 +15,8 @@ import AgeCalculator from './pages/AgeCalculator';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import About from './pages/About';
+import Contact from './pages/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 import Admin from './pages/Admin';
 import AuthPage from './pages/Auth';
 
@@ -33,7 +35,8 @@ export default function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/auth" element={<AuthPage />} />
         </Route>

@@ -9,16 +9,16 @@ export default function Footer() {
           
           <div className="col-span-1 md:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <CalendarIcon size={24} className="text-[var(--color-brand-accent)]" />
+              <CalendarIcon size={24} className="text-emerald-500" />
               <span className="font-display font-semibold text-2xl tracking-wider text-white">CALENDRIX</span>
             </Link>
             <p className="text-sm text-gray-400 mb-6">
-              The world's most inclusive digital calendar. Bridging cultures, religions, and timezones seamlessly.
+              A productivity and calendar management blog curated by Yahya Mughal. Bridging cultures and digital efficiency.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-[var(--color-brand-accent)] transition-colors"><Twitter size={20} /></a>
-              <a href="#" className="text-gray-400 hover:text-[var(--color-brand-accent)] transition-colors"><Github size={20} /></a>
-              <a href="mailto:hello@calendrix.com" className="text-gray-400 hover:text-[var(--color-brand-accent)] transition-colors"><Mail size={20} /></a>
+              <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors"><Twitter size={20} /></a>
+              <a href="#" className="text-gray-400 hover:text-emerald-400 transition-colors"><Github size={20} /></a>
+              <a href="mailto:altroyx792ab@gmail.com" className="text-gray-400 hover:text-emerald-400 transition-colors"><Mail size={20} /></a>
             </div>
           </div>
 
@@ -45,16 +45,16 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-white mb-4">Legal</h3>
             <ul className="space-y-3 text-sm text-gray-400">
-              <li><a href="#" className="hover:text-[var(--color-brand-accent)] transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-[var(--color-brand-accent)] transition-colors">Terms of Service</a></li>
+              <li><Link to="/privacy-policy" className="hover:text-emerald-400 transition-colors">Privacy Policy</Link></li>
+              <li><a href="#" className="hover:text-emerald-400 transition-colors">Terms of Service</a></li>
             </ul>
           </div>
 
         </div>
         
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
-          <p>© 2025 Calendrix. All rights reserved.</p>
-          <p className="mt-2 md:mt-0">Designed for the global citizen.</p>
+          <p>© 2026 Calendrix. All rights reserved by Yahya Mughal.</p>
+          <p className="mt-2 md:mt-0">Professional Vibe Coding & Productivity Insights.</p>
         </div>
       </div>
     </footer>
