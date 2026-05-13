@@ -9,7 +9,7 @@ export default function Footer() {
           
           <div className="col-span-1 md:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <CalendarIcon size={24} className="text-emerald-500" />
+              <img src="/logo.svg" alt="Calendrix Logo" className="h-6 w-6" />
               <span className="font-display font-semibold text-2xl tracking-wider text-white">CALENDRIX</span>
             </Link>
             <p className="text-sm text-gray-400 mb-6">

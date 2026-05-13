@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { supabase } from '../lib/supabase';
+import { useAuth } from '../contexts/AuthContext';
 import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'motion/react';
 import { Plus, Trash2, CalendarDays, X } from 'lucide-react';
@@ -14,9 +16,11 @@ interface SavedCountdown {
 }
 
 export default function Countdown() {
+  const { user } = useAuth();
   const [countdowns, setCountdowns] = useState<SavedCountdown[]>([]);
   const [now, setNow] = useState(new Date().getTime());
   const [showModal, setShowModal] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   // Form states
   const [newName, setNewName] = useState('');
@@ -24,43 +28,100 @@ export default function Countdown() {
   const [newColor, setNewColor] = useState('#C9A84C');
 
   useEffect(() => {
-    const saved = localStorage.getItem('calendrix_countdowns');
-    if (saved) {
-      setCountdowns(JSON.parse(saved));
-    }
+    const fetchCountdowns = async () => {
+      if (!user) {
+        // Fallback to local storage if not logged in
+        const saved = localStorage.getItem('calendrix_countdowns');
+        if (saved) setCountdowns(JSON.parse(saved));
+        return;
+      }
+
+      setLoading(true);
+      const { data, error } = await supabase
+        .from('countdowns')
+        .select('*')
+        .eq('user_id', user.id)
+        .order('created_at', { ascending: false });
+
+      if (data) {
+        setCountdowns(data.map(item => ({
+          id: item.id,
+          name: item.name,
+          targetDate: item.target_date,
+          category: item.category,
+          color: item.color,
+          createdAt: new Date(item.created_at).getTime()
+        })));
+      }
+      setLoading(false);
+    };
+
+    fetchCountdowns();
     
     const interval = setInterval(() => {
       setNow(new Date().getTime());
     }, 1000);
     return () => clearInterval(interval);
-  }, []);
+  }, [user]);
 
-  const saveCountdowns = (newItems: SavedCountdown[]) => {
-    setCountdowns(newItems);
-    localStorage.setItem('calendrix_countdowns', JSON.stringify(newItems));
-  };
-
-  const addCountdown = (e: React.FormEvent) => {
+  const addCountdown = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!newName || !newDate) return;
 
-    const newItem: SavedCountdown = {
-      id: Date.now().toString(),
-      name: newName,
-      targetDate: new Date(newDate).toISOString(),
-      category: 'Personal',
-      color: newColor,
-      createdAt: Date.now()
-    };
+    const targetDateIso = new Date(newDate).toISOString();
+    
+    if (user) {
+      const { data, error } = await supabase
+        .from('countdowns')
+        .insert({
+          user_id: user.id,
+          name: newName,
+          target_date: targetDateIso,
+          color: newColor,
+          category: 'Personal'
+        })
+        .select()
+        .single();
 
-    saveCountdowns([...countdowns, newItem]);
+      if (data) {
+        setCountdowns([{
+          id: data.id,
+          name: data.name,
+          targetDate: data.target_date,
+          category: data.category,
+          color: data.color,
+          createdAt: new Date(data.created_at).getTime()
+        }, ...countdowns]);
+      }
+    } else {
+      // Local fallback
+      const newItem: SavedCountdown = {
+        id: Date.now().toString(),
+        name: newName,
+        targetDate: targetDateIso,
+        category: 'Personal',
+        color: newColor,
+        createdAt: Date.now()
+      };
+      const updated = [newItem, ...countdowns];
+      setCountdowns(updated);
+      localStorage.setItem('calendrix_countdowns', JSON.stringify(updated));
+    }
+
     setShowModal(false);
     setNewName('');
     setNewDate('');
   };
 
-  const removeCountdown = (id: string) => {
-    saveCountdowns(countdowns.filter(c => c.id !== id));
+  const removeCountdown = async (id: string) => {
+    if (user) {
+      await supabase.from('countdowns').delete().eq('id', id);
+    }
+    const updated = countdowns.filter(c => c.id !== id);
+    setCountdowns(updated);
+    if (!user) {
+      localStorage.setItem('calendrix_countdowns', JSON.stringify(updated));
+    }
   };
 
   const calculateTimeLeft = (targetDate: string) => {

@@ -45,11 +45,27 @@ export default function AuthPage() {
 
     try {
       if (isSignUp) {
-        const { error } = await supabase.auth.signUp({
+        const { data: authData, error: signUpError } = await supabase.auth.signUp({
           email,
           password,
         });
-        if (error) throw error;
+        if (signUpError) throw signUpError;
+
+        // If signup is successful, create a profile record
+        if (authData.user) {
+          const { error: profileError } = await supabase
+            .from('profiles')
+            .upsert({ 
+              id: authData.user.id, 
+              email: authData.user.email,
+              created_at: new Date().toISOString()
+            });
+          
+          if (profileError) {
+            console.warn('Error creating profile, but user was created:', profileError.message);
+          }
+        }
+
         setMessage('Check your email for the confirmation link!');
       } else {
         const { error } = await supabase.auth.signInWithPassword({

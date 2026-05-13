@@ -68,8 +68,8 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="text-[var(--color-brand-accent)] bg-white/5 p-2 rounded-lg group-hover:rotate-12 transition-transform">
-              <CalendarIcon size={24} />
+            <div className="bg-white/5 p-2 rounded-lg group-hover:rotate-12 transition-transform h-10 w-10 flex items-center justify-center">
+              <img src="/logo.svg" alt="Calendrix Logo" className="h-full w-full" />
             </div>
             <span className="font-display font-semibold text-2xl tracking-wider text-white">CALENDRIX</span>
           </Link>
