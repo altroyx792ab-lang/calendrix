@@ -150,7 +150,7 @@ export default function Admin() {
       <div className="flex justify-between items-center mb-12">
         <div>
           <h1 className="text-3xl font-display font-bold flex items-center gap-3">
-            <ShieldCheck className="text-[var(--color-brand-islamic)]" /> Admin Dashboard
+            <ShieldCheck className="text-brand-accent" /> Admin Dashboard
           </h1>
           <p className="text-gray-400 mt-1">Logged in as {user.email}</p>
         </div>
@@ -166,7 +166,7 @@ export default function Admin() {
         {[
           { title: 'Registered Users', val: stats.totalUsers.toLocaleString(), icon: <Users size={24} />, color: 'text-blue-400' },
           { title: 'Countdowns Created', val: stats.activeCountdowns.toLocaleString(), icon: <Activity size={24} />, color: 'text-green-400' },
-          { title: 'System Status', val: stats.systemHealth, icon: <ShieldCheck size={24} />, color: 'text-emerald-400' },
+          { title: 'System Status', val: stats.systemHealth, icon: <ShieldCheck size={24} />, color: 'text-brand-accent' },
           { title: 'Last Data Sync', val: stats.lastSync, icon: <Settings size={24} />, color: 'text-purple-400' },
         ].map((stat, i) => (
            <div key={i} className="glass-card p-6 rounded-2xl border border-white/5 flex flex-col hover:border-white/20 transition-all">

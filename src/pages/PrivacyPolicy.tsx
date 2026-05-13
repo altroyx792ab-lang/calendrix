@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
       </Helmet>
 
       <div className="mb-16 text-center">
-        <div className="w-16 h-16 bg-emerald-500/10 text-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+        <div className="w-16 h-16 bg-brand-accent/10 text-brand-accent rounded-2xl flex items-center justify-center mx-auto mb-6">
           <Shield size={32} />
         </div>
         <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-4">Privacy Policy</h1>
@@ -23,14 +23,14 @@ export default function PrivacyPolicy() {
         
         <section>
           <div className="flex items-center gap-3 mb-6">
-            <Eye className="text-emerald-400" />
+            <Eye className="text-brand-accent" />
             <h2 className="text-2xl font-bold text-white">Introduction</h2>
           </div>
           <p className="leading-relaxed mb-4">
             Welcome to <strong>Calendrix</strong>. We value your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website.
           </p>
           <p className="leading-relaxed">
-            By using Calendrix, you agree to the terms outlined in this policy. If you have any questions or concerns, please contact us at <a href="mailto:altroyx792ab@gmail.com" className="text-emerald-400 hover:underline">altroyx792ab@gmail.com</a>.
+            By using Calendrix, you agree to the terms outlined in this policy. If you have any questions or concerns, please contact us at <a href="mailto:altroyx792ab@gmail.com" className="text-brand-accent hover:underline">altroyx792ab@gmail.com</a>.
           </p>
         </section>
 
@@ -65,7 +65,7 @@ export default function PrivacyPolicy() {
               Google's use of advertising cookies enables it and its partners to serve ads to our users based on their visit to our sites and/or other sites on the Internet.
             </p>
             <p className="leading-relaxed">
-              Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:underline">Google Ad Settings</a>. Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising by visiting <a href="www.aboutads.info" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:underline">www.aboutads.info</a>.
+              Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-brand-accent hover:underline">Google Ad Settings</a>. Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising by visiting <a href="www.aboutads.info" target="_blank" rel="noopener noreferrer" className="text-brand-accent hover:underline">www.aboutads.info</a>.
             </p>
           </div>
         </section>
@@ -96,7 +96,7 @@ export default function PrivacyPolicy() {
           <h2 className="text-2xl font-bold text-white mb-6">Contact Information</h2>
           <div className="bg-white/5 p-8 rounded-3xl border border-white/5">
             <p className="mb-2">For any questions regarding this Privacy Policy, please contact us at:</p>
-            <p className="text-xl font-bold text-emerald-400">altroyx792ab@gmail.com</p>
+            <p className="text-xl font-bold text-brand-accent">altroyx792ab@gmail.com</p>
             <p className="mt-4 text-sm text-gray-500">Website: Calendrix (Owned by Yahya Mughal)</p>
           </div>
         </section>

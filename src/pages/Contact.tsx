@@ -31,7 +31,7 @@ export default function Contact() {
       </Helmet>
 
       <div className="text-center mb-16">
-        <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 text-white">Get in <span className="text-emerald-400">Touch</span></h1>
+        <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 text-white">Get in <span className="text-brand-accent">Touch</span></h1>
         <p className="text-xl text-gray-400 max-w-2xl mx-auto">
           Have questions about our tools? Need help with productivity? I'm here to help you master your schedule.
         </p>
@@ -40,18 +40,18 @@ export default function Contact() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
         {/* Contact Info */}
         <div className="lg:col-span-1 space-y-8">
-          <div className="p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-emerald-500/30 transition-colors group">
-            <div className="w-12 h-12 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-6 text-emerald-500 group-hover:scale-110 transition-transform">
+          <div className="p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-brand-accent/30 transition-colors group">
+            <div className="w-12 h-12 bg-brand-accent/10 rounded-2xl flex items-center justify-center mb-6 text-brand-accent group-hover:scale-110 transition-transform">
               <Mail size={24} />
             </div>
             <h3 className="text-xl font-bold text-white mb-2">Email Me</h3>
             <p className="text-gray-400 mb-4 text-sm font-medium">Direct support for all your inquiries.</p>
-            <a href="mailto:altroyx792ab@gmail.com" className="text-emerald-400 font-bold hover:underline break-all">
+            <a href="mailto:altroyx792ab@gmail.com" className="text-brand-accent font-bold hover:underline break-all">
               altroyx792ab@gmail.com
             </a>
           </div>
 
-          <div className="p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-emerald-500/30 transition-colors group">
+          <div className="p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-brand-accent/30 transition-colors group">
             <div className="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6 text-blue-500 group-hover:scale-110 transition-transform">
               <Phone size={24} />
             </div>
@@ -62,7 +62,7 @@ export default function Contact() {
             </a>
           </div>
 
-          <div className="p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-emerald-500/30 transition-colors group">
+          <div className="p-8 bg-white/5 border border-white/10 rounded-3xl hover:border-brand-accent/30 transition-colors group">
             <div className="w-12 h-12 bg-purple-500/10 rounded-2xl flex items-center justify-center mb-6 text-purple-500 group-hover:scale-110 transition-transform">
               <MessageSquare size={24} />
             </div>
@@ -78,11 +78,11 @@ export default function Contact() {
         {/* Contact Form */}
         <div className="lg:col-span-2">
           <div className="bg-white/5 border border-white/10 rounded-[2.5rem] p-8 md:p-12 backdrop-blur-sm relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl -mr-32 -mt-32"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-accent/5 rounded-full blur-3xl -mr-32 -mt-32"></div>
             
             {submitted ? (
               <div className="text-center py-20">
-                <div className="w-20 h-20 bg-emerald-500/10 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-8">
+                <div className="w-20 h-20 bg-brand-accent/10 text-brand-accent rounded-full flex items-center justify-center mx-auto mb-8">
                   <Send size={40} />
                 </div>
                 <h2 className="text-3xl font-display font-bold text-white mb-4">Message Sent!</h2>
@@ -104,7 +104,7 @@ export default function Contact() {
                         type="text" 
                         value={formData.name}
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
-                        className="w-full bg-white/10 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-emerald-500 text-white transition-colors"
+                        className="w-full bg-white/10 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-brand-accent text-white transition-colors"
                         placeholder="Yahya Mughal"
                       />
                     </div>
@@ -115,7 +115,7 @@ export default function Contact() {
                         type="email" 
                         value={formData.email}
                         onChange={(e) => setFormData({...formData, email: e.target.value})}
-                        className="w-full bg-white/10 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-emerald-500 text-white transition-colors"
+                        className="w-full bg-white/10 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-brand-accent text-white transition-colors"
                         placeholder="altroyx792ab@gmail.com"
                       />
                     </div>
@@ -126,7 +126,7 @@ export default function Contact() {
                     <select 
                       value={formData.subject}
                       onChange={(e) => setFormData({...formData, subject: e.target.value})}
-                      className="w-full bg-white/10 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-emerald-500 text-white transition-colors appearance-none"
+                      className="w-full bg-white/10 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-brand-accent text-white transition-colors appearance-none"
                     >
                       <option className="bg-slate-900 leading-3">General Inquiry</option>
                       <option className="bg-slate-900">Feature Request</option>
@@ -142,7 +142,7 @@ export default function Contact() {
                       rows={6}
                       value={formData.message}
                       onChange={(e) => setFormData({...formData, message: e.target.value})}
-                      className="w-full bg-white/10 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-emerald-500 text-white resize-none transition-colors"
+                      className="w-full bg-white/10 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-brand-accent text-white resize-none transition-colors"
                       placeholder="Tell me how I can help you..."
                     />
                   </div>
@@ -150,7 +150,7 @@ export default function Contact() {
                   <button 
                     disabled={isSubmitting}
                     type="submit" 
-                    className="w-full py-5 bg-emerald-500 text-slate-900 font-black text-lg rounded-2xl hover:bg-white transition-all duration-500 flex items-center justify-center gap-3 active:scale-[0.98]"
+                    className="w-full py-5 bg-brand-accent text-slate-900 font-black text-lg rounded-2xl hover:bg-white transition-all duration-500 flex items-center justify-center gap-3 active:scale-[0.98]"
                   >
                     {isSubmitting ? (
                       <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-slate-900"></div>
